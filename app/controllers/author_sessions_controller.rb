@@ -1,4 +1,5 @@
 class AuthorSessionsController < ApplicationController
+
   def new
   end
 
@@ -6,7 +7,6 @@ class AuthorSessionsController < ApplicationController
     if login(params[:email], params[:password])
       redirect_back_or_to(articles_path, notice: 'Logged in successfully.')
     else
-      binding.pry
       flash.now.alert = "Login failed."
       render action: :new
     end
